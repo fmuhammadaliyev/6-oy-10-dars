@@ -1,8 +1,6 @@
-// App.jsx
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
-// Text translations
 const texts = {
   en: {
     heroTitle: "More than just shorter links",
@@ -40,7 +38,6 @@ const texts = {
   },
 };
 
-// Styled Components (hech narsa o‘zgarmaydi)
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
@@ -67,8 +64,7 @@ const Nav = styled.nav`
 const Hero = styled.section`
   text-align: center;
   padding: 6rem 2rem;
-  background: #3b3054;
-  color: #fff;
+  color: black;
   h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -173,18 +169,6 @@ const Boost = styled.section`
   }
 `;
 
-const Footer = styled.footer`
-  background: #232127;
-  color: #fff;
-  padding: 4rem 2rem;
-  text-align: center;
-  a {
-    color: #fff;
-    margin: 0 1rem;
-    text-decoration: none;
-  }
-`;
-
 function App() {
   const [lang, setLang] = useState("en");
   const [stats, setStats] = useState([]);
@@ -244,11 +228,10 @@ function App() {
         <p>{texts[lang].statsSubtitle}</p>
         <Cards>
           {loading ? (
-            <p>Loading...</p>
+            <p></p>
           ) : stats.length > 0 ? (
             stats.map((item) => (
               <Card key={item.id}>
-                <img src={item.icon} alt={item.title} />
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </Card>
@@ -263,14 +246,6 @@ function App() {
         <h2>{texts[lang].boostTitle}</h2>
         <button>Get Started</button>
       </Boost>
-
-      <Footer>
-        <div>
-          <a href="#">Facebook</a>
-          <a href="#">Twitter</a>
-          <a href="#">Instagram</a>
-        </div>
-      </Footer>
     </>
   );
 }
