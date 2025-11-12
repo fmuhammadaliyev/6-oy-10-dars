@@ -183,7 +183,7 @@ function App() {
       setLoading(true);
       try {
         const res = await fetch(
-          `https://json-api.uz/api/project/shortly/${lang}`
+          `https://json-api.uz/api/project/shortly/{lang}`
         );
         const data = await res.json();
         setStats(Array.isArray(data) ? data : data.data || []);
